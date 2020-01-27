@@ -1,31 +1,28 @@
-const path = require("path");
+
 const router = require("express").Router();
-const store = require("../develop/db/store").Router();
+const store = require("../db/store");
 
-//#2 Routing 
-
-module.export = function (app){
-
-}
+//#2 Routing the functionalities of node.html page 
 
 router.get("/notes", function(req, res) {
      store
     .getNotes()
-    .then(then => res.jason(notes))
-    .catch(err => res.status(500).jason(err));
+    .then(notes => res.json(notes))
+    .catch(err => res.status(500).json(err));
 });  
 
 router.post("/notes", function(req, res) {
     store
    .addNotes(req.body)
-   .then(then => res.jason(notes))
-   .catch(err => res.status(500).jason(err));
+   .then((note) => res.json(note))
+   .catch(err => res.status(500).json(err));
 });   
 
-router.delete("/notes", function(req, res) {
+router.delete("/notes/:id", function(req, res) {
     store
-   .deleteNotes()
-   .then(then => res.jason(notes))
-   .catch(err => res.status(500).jason(err));
+   .deleteNotes(req.params.id)
+   .then(() => res.json({ok: true}))
+   .catch(err => res.status(500).json(err));
 });   
 
+module.exports = router;
