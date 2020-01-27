@@ -18,8 +18,17 @@ app.use(express.json());
 //#4 Code to data files in directory name public
 app.use(express.static('public'));
 
-//Page 1 - index.html file
+//Page 1 - index.html. Send file when called
 app.get('/', function(req, res) {
   res.sendFile(path.join(__dirname, '/public/index.html'));
 });
 
+//Page 2 - notes.html - Send file when called 
+app.get('/notes', function(req, res) {
+  res.sendFile(path.join(__dirname, '/public/notes.html'));
+});
+
+//Getting my API/Notes
+app.get('/api/notes', function(req, res) {
+  res.json(db);
+});
