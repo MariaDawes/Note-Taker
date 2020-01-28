@@ -3,12 +3,11 @@ const fs = require('fs');
 
 //Variables for path
 const path = require('path');
-const db = require('./db/db.json');
+const datab = require('./db/db.json');
+let dpath = path.join(__dirname, '/db/db.json');
 
 //Variable for uuid
-const uuid = require("uuid/v1");
-
-let data_path = path.join(__dirname, '/db/db.json');
+const uuid = require('uuid/v1');
 
 //Variables for Express app and PORT
 var app = express();
@@ -33,35 +32,35 @@ app.get('/notes', function(req, res) {
 
 //Getting my API/Notes
 app.get('/api/notes', function(req, res) {
-    res.json(db);
+    res.json(datab);
 });
 
 //adding random id to the notes and saving it.
 app.post("/api/notes", function(req, res) {
   
-  var uniqueId = uuid();
-  var newnote = req.body;
-  newnote.id = uniqueId;
+  var uniqId = uuid();
+  var newtask = req.body;
+  newtask.id = uniqId;
 
-  db.push(newnote);
-  fs.writeFileSync(data_path,JSON.stringify(db),function(err,data){
+  datab.push(newtask);
+  fs.writeFileSync(dpath,JSON.stringify(datab),function(err,data){
     if (err) throw err;
   })
-  res.json(newnote);
+  res.json(newtask);
 });
 
 //Delete notes 
 app.delete("/api/notes/:id" ,function(req,res){
 
-  const deleteId = req.params.id;
-  for (i=0;i<db.length;i++){
+  const dId = req.params.id;
+  for (i=0;i<datab.length;i++){
 
-    if(db[i].id ===deleteId){
-      db.splice(i,1);
+    if(datab[i].id ===dId){
+      datab.splice(i,1);
       break;
     } 
   }
-  res.json(db);
+  res.json(datab);
 });
 
 app.listen(PORT, function () {
