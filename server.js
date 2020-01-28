@@ -4,14 +4,17 @@ const fs = require('fs');
 //Variables for path
 const path = require('path');
 const db = require('./db/db.json');
-let data_path = path.join(__dirname, '/db/db.json');
 
 //Variable for uuid
 const uuid = require("uuid/v1");
 
+let data_path = path.join(__dirname, '/db/db.json');
+
+
+
 //Variables for Express app and PORT
 const app = express();
-const PORT = process.env.PORT || 3030;
+const PORT = process.env.PORT || 8080;
 
 //linking public folder to get data from it
 app.use(express.static('public'));
