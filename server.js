@@ -10,11 +10,9 @@ const uuid = require("uuid/v1");
 
 let data_path = path.join(__dirname, '/db/db.json');
 
-
-
 //Variables for Express app and PORT
-const app = express();
-const PORT = process.env.PORT || 8080;
+var app = express();
+var PORT = process.env.PORT || 3030;
 
 //linking public folder to get data from it
 app.use(express.static('public'));
