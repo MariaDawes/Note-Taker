@@ -10,6 +10,12 @@ The software will run in any Laptop, iPad and phone.
 # Results 
 * The website should run and be able to save notes and display them on the left side of the screen. If the delilte button is pressed, note should be deleted.
 
+# Screenshots
+
+![alt text](./pageone.png "Page 1")
+![alt text](./notesadded.png "Notes Added")
+![alt text](./notesdeleted.png "Notes Deleted")
+
 # Tests 
 * add note
 * delete note 
