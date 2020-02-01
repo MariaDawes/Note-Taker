@@ -13,8 +13,14 @@ The software will run in any Laptop, iPad and phone.
 # Screenshots
 
 ![alt text](./pageone.png "Page 1")
+Screen1: Website first page with button that takes to second page.
+
 ![alt text](./notesadded.png "Notes Added")
+Screen2: Second page. Notes added.
+
 ![alt text](./notesdeleted.png "Notes Deleted")
+Screen3: Second page. Notes deleted.
+
 
 # Tests 
 * add note
